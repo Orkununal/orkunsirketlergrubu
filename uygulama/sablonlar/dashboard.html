@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Yönetim Paneli · {{ config.BRAND_NAME }}{% endblock %}
+{% block scripts %}<script type="module" src="{{ url_for('static', filename='dashboard.js') }}"></script>{% endblock %}
+{% block content %}
+<section class="dashboard">
+  <div class="section-heading"><div><p class="eyebrow">YÖNETİM PANELİ</p><h1>Görüşme talepleri</h1><p class="muted">Müşteri adaylarını ve hizmet ihtiyaçlarını tek yerden inceleyin.</p></div><span class="secure-label">Yönetici erişimi</span></div>
+  <form id="authForm" class="auth-card"><div><h2>Panele giriş</h2><p>Erişim anahtarınızı kullanarak talepleri görüntüleyin.</p></div><label for="tokenInput">Yönetici erişim anahtarı<input type="password" id="tokenInput" autocomplete="off" required placeholder="Erişim anahtarınız"></label><button id="loginButton" class="button primary" type="submit">Panele giriş yap <span aria-hidden="true">↗</span></button></form>
+  <p id="dashboardStatus" class="form-status" role="status" aria-live="polite"></p>
+  <div id="dashboardContent" hidden>
+    <div class="stats-row"><div class="stat"><span>Toplam talep</span><strong id="totalCount">0</strong></div><div class="stat"><span>Bugün gelen</span><strong id="todayCount">0</strong></div><div class="stat"><span>Son güncelleme</span><strong class="stat-time" id="lastUpdate">—</strong></div></div>
+    <div class="table-toolbar"><label for="searchInput">Taleplerde ara<input id="searchInput" type="search" placeholder="Ad, telefon veya hizmet…"></label><div><button id="refreshButton" class="button secondary" type="button">Yenile ↻</button><button id="logoutButton" class="button secondary" type="button">Çıkış</button></div></div>
+    <div class="table-wrap"><table><caption class="sr-only">En yeni talepler önce gösterilir</caption><thead><tr><th scope="col">Ad soyad</th><th scope="col">Telefon</th><th scope="col">Hizmet / Talep</th><th scope="col">Tarih</th></tr></thead><tbody id="leadRows"></tbody></table><p id="emptyState" class="empty-state" hidden>Henüz görüşme talebi yok. İlk kayıt, teklif formu gönderildiğinde burada görünecek.</p></div>
+    <p class="muted" id="visibleCount"></p>
+  </div>
+</section>
+{% endblock %}

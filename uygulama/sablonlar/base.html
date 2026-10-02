@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ config.BRAND_NAME }} hizmetleri için akıllı satış asistanı ve görüşme talebi.">
+  <title>{% block title %}{{ config.BRAND_NAME }} · Akıllı Satış Asistanı{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% block scripts %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#icerik">İçeriğe geç</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="{{ config.BRAND_NAME }} ana sayfa"><span class="brand-symbol" aria-hidden="true">O<span></span></span><span>{{ config.BRAND_NAME }}<small>ENTEGRE HİZMET YÖNETİMİ</small></span></a>
+    <nav aria-label="Ana menü"><a href="/#hizmetler">Hizmetlerimiz</a><a href="/#teklif">Görüşme talebi</a><a class="nav-panel" href="/dashboard">Yönetim paneli <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="icerik">{% block content %}{% endblock %}</main>
+  <footer><span>{{ config.BRAND_NAME }}</span><span>Proje uygulaması · SmartLead AI</span></footer>
+</body>
+</html>
