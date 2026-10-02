@@ -1,7 +1,0 @@
-[run]
-branch = True
-source = uygulama
-
-[report]
-show_missing = True
-precision = 2
