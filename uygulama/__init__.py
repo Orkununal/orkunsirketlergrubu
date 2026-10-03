@@ -26,8 +26,6 @@ def uygulama_olustur(ayar_adi=None, test_config=None):
     if name == 'production':
         if len(app.config['SECRET_KEY']) < 32 or len(app.config['ADMIN_API_TOKEN']) < 32:
             raise ValueError('Üretimde SECRET_KEY ve ADMIN_API_TOKEN en az 32 karakter olmalıdır.')
-        if not app.config['CORS_ORIGINS'] or '*' in app.config['CORS_ORIGINS']:
-            raise ValueError('Üretimde açık CORS alan adları tanımlanmalıdır; * kullanılamaz.')
     else:
         app.config['SECRET_KEY'] = app.config['SECRET_KEY'] or secrets.token_hex(32)
 
