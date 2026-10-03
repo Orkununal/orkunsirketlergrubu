@@ -35,14 +35,7 @@ def uygulama_olustur(ayar_adi=None, test_config=None):
         raise ValueError('AI_PROVIDER groq veya demo olmalıdır.')
 
     app.json.ensure_ascii = False
-    CORS(
-        app,
-        resources={r'/api/*': {'origins': app.config['CORS_ORIGINS']}},
-        allow_headers=['Content-Type', 'Authorization'],
-        methods=['GET', 'POST', 'OPTIONS'],
-        supports_credentials=False,
-        always_send=False,
-    )
+    CORS(app)
 
     with app.app_context():
         init_db(app)
