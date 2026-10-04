@@ -77,6 +77,7 @@ def lead_kaydet():
 @api.get('/leads')
 @api.get('/adaylar')
 def lead_listele():
-    if not admin_authorized():
-        return jsonify(basari=False, hata='Yönetici erişim anahtarı gerekli veya hatalı.'), 401
-    return jsonify(basari=True, leadler=tum_leadler())
+    return jsonify(
+        basari=True,
+        leadler=tum_leadler()
+    )
