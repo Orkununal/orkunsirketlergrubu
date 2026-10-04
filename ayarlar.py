@@ -15,7 +15,7 @@ class Config:
     DATABASE_URL = os.environ.get('DATABASE_URL', str(BASE_DIR / 'orkun_smartlead.db'))
     GROQ_API_KEY = os.environ.get('GROQ_API_KEY', '')
     AI_PROVIDER = os.environ.get('AI_PROVIDER', 'groq').lower()
-    AI_MODEL = os.environ.get('AI_MODEL', 'llama-3.1-8b-instant')
+    AI_MODEL = os.environ.get('AI_MODEL', 'openai/gpt-oss-120b')
     AI_TIMEOUT = float(os.environ.get('AI_TIMEOUT', '20'))
     ADMIN_API_TOKEN = os.environ.get('ADMIN_API_TOKEN', '')
     CORS_ORIGINS ='*'
