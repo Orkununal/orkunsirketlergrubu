@@ -18,9 +18,7 @@ class Config:
     AI_MODEL = os.environ.get('AI_MODEL', 'llama-3.1-8b-instant')
     AI_TIMEOUT = float(os.environ.get('AI_TIMEOUT', '20'))
     ADMIN_API_TOKEN = os.environ.get('ADMIN_API_TOKEN', '')
-    CORS_ORIGINS = [s.strip() for s in os.environ.get(
-        'CORS_ORIGINS', 'http://localhost:5000,http://127.0.0.1:5000'
-    ).split(',') if s.strip()]
+    CORS_ORIGINS ='*'
     HOST = os.environ.get('HOST', '127.0.0.1')
     PORT = int(os.environ.get('PORT', '5000'))
     MAX_CONTENT_LENGTH = 64 * 1024
